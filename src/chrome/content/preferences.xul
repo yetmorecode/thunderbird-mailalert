@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://mailalert/locale/preferences.dtd">
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+ 
+<prefwindow id="mailAlertPreferences"
+     title="&title;"
+     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+     onload="MailAlertPreferences.updateBlacklist();">
+ 
+<script type="text/javascript" src="chrome://mailalert/content/preferences.js" />
+ 
+<prefpane id="mailAlertPrefPane" label="Stock Settings">
+  <preferences>
+    <preference id="pref_close" name="extensions.mailalert.close_after_timeout" type="bool"/>
+    <preference id="pref_close_timeout" name="extensions.mailalert.close_timeout" type="int" />
+    <preference id="pref_close_read" name="extensions.mailalert.close_mark_read" type="bool" />
+    <preference id="pref_close_unnew" name="extensions.mailalert.close_mark_unnew" type="bool" />
+    
+    <preference id="pref_screen_position" name="extensions.mailalert.screen_position" type="string" />
+    
+    <preference id="pref_show_subject" name="extensions.mailalert.show_subject" type="bool" />
+    <preference id="pref_show_sender" name="extensions.mailalert.show_sender" type="bool" />
+    <preference id="pref_show_date" name="extensions.mailalert.show_date" type="bool" />
+    <preference id="pref_show_time" name="extensions.mailalert.show_time" type="bool" />
+    <preference id="pref_show_preview" name="extensions.mailalert.show_preview" type="bool" />
+    <preference id="pref_show_folder" name="extensions.mailalert.show_folder" type="bool" />
+    <preference id="pref_show_star" name="extensions.mailalert.show_star" type="bool" />
+    
+    <preference id="pref_messages_limit_enable" name="extensions.mailalert.messages.enable_limit" type="bool" />
+    <preference id="pref_messages_limit" name="extensions.mailalert.messages.limit" type="int" />
+  </preferences>
+ 
+  <hbox>
+    <tabbox>
+        <tabs>
+            <tab label="&tab.general;" />
+            <tab label="&tab.blacklist;" />
+        </tabs>
+        <tabpanels>
+            <tabpanel>
+                <vbox flex="1">
+                    <groupbox>
+                        <caption label="&window.caption;" />
+                        
+                        <hbox>
+                            <checkbox label="&window.close_after_start;" preference="pref_close" />
+                            <textbox type="number" preference="pref_close_timeout" width="35" min="1" />
+                            <label style="margin-top: 5px; margin-left: 0px;" value="&window.close_after_end;" />
+                        </hbox>
+                        <hbox>
+                            <checkbox label="&window.limit_start;" preference="pref_messages_limit_enable" />
+                            <textbox type="number" preference="pref_messages_limit" width="35" min="1" />
+                            <label style="margin-top: 5px; margin-left: 0px;" value="&window.limit_end;" />
+                        </hbox>
+                        
+                        <label value="&window.screen_position;" />
+                        <radiogroup preference="pref_screen_position">
+                            <grid>
+                                <columns>
+                                    <column />
+                                    <column />
+                                    <column />
+                                </columns>
+                                <rows>
+                                    <row align="center">
+                                        <radio label="&window.screen_position_ul;" value="top-left"/>
+                                        <radio label="&window.screen_position_uc;" value="top-center"/>
+                                        <radio label="&window.screen_position_ur;" value="top-right"/>
+                                    </row>
+                                    <row>
+                                        <radio label="&window.screen_position_dl;" value="bottom-left"/>
+                                        <radio label="&window.screen_position_dc;" value="bottom-center"/>
+                                        <radio label="&window.screen_position_dr;" value="bottom-right"/>
+                                    </row>
+                                </rows>
+                            </grid>
+                        </radiogroup>
+                    </groupbox>
+                
+                    <groupbox>
+                        <caption label="&view.title;" />
+                        <vbox>
+                            <label value="&view.description;" />
+                            <hbox>
+                                <vbox flex="1">
+                                    <checkbox label="&view.show_date;" preference="pref_show_date" />
+                                    <checkbox label="&view.show_time;" preference="pref_show_time" />
+                                    <checkbox label="&view.show_star;" preference="pref_show_star" />
+                                </vbox>
+                                
+                                <vbox flex="1">
+                                    <checkbox label="&view.show_subject;" preference="pref_show_subject" />
+                                    <checkbox label="&view.show_sender;" preference="pref_show_sender" />
+                                    <checkbox label="&view.show_preview;" preference="pref_show_preview" />
+                                </vbox>
+                                
+                                <vbox flex="1">
+                                    <checkbox label="&view.show_folder;" preference="pref_show_folder" />
+                                </vbox>
+                                
+                                <spacer flex="1" />
+                            </hbox>
+                        </vbox>
+                    </groupbox>
+                </vbox>
+                
+            </tabpanel>
+            <tabpanel>
+                <vbox>
+                    <label value="&blacklist.title;" />
+                    <hbox>
+                        <listbox id="blacklist" width="250" />
+                        <vbox>
+                            <menulist label="&blacklist.add;" style="padding-left: 16px; text-align: center;" width="200">
+                                <menupopup id="actionTargetFolderPopup" type="folder" 
+                                           style="text-align: left; -moz-binding: url('chrome://messenger/content/folderWidgets.xml#folder-menupopup');"
+                                           oncommand="MailAlertPreferences.addBlacklistEntry(event.target._folder);" />
+                            </menulist>
+                            <button label="&blacklist.remove;" oncommand="MailAlertPreferences.removeBlacklistEntry(event.target);" />
+                        </vbox>
+                    </hbox>
+                </vbox>
+            </tabpanel>
+        </tabpanels>
+    </tabbox>
+  </hbox>
+</prefpane>
+ 
+</prefwindow>

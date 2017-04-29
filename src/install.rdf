@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:id>mailalert@eigenco.de</em:id>
+    <em:version>16.0</em:version>
+    <em:type>2</em:type>
+    <em:optionsURL>chrome://mailalert/content/preferences.xul</em:optionsURL>
+    <em:iconURL>chrome://messenger/skin/icons/new-mail-alert.png</em:iconURL>
+    <em:unpack>true</em:unpack>
+   
+    <!-- Target Application this extension can install into, 
+         with minimum and maximum supported versions. --> 
+    <em:targetApplication>
+      <Description>
+        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        <em:minVersion>16.0</em:minVersion>
+        <em:maxVersion>16.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+    <em:targetPlatform>WINNT_x86-msvc</em:targetPlatform>
+   
+    <!-- Front End MetaData -->
+    <em:name>Mail Alert Plus</em:name>
+    <em:description>
+        Don't get lost in incoming mail. Mail Alert Plus adds more customizability to the standard mail alerts and makes sure that no important mail gets unnoticed.    
+    </em:description>
+    <em:creator>Maik Beckmann</em:creator>
+    <em:homepageURL>http://eigenco.de</em:homepageURL>
+    
+    <em:updateURL>http://eigenco.de/mailalert/update.rdf</em:updateURL>
+    <em:updateKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC+8TKMw712fAu04kUSCS+Qg/QSM2p38aIwnraswdfFAzIREiIjZd07hAYKdhat8Q6GlnXX3ZlIesAz04rweHDeiFls3tnhglvITLfmdarJr2fnKLEYZUhzTSV0dJGE+foerx+g70MTdBe9c8YlYZCtrmuIojd5Mz6KFjEyQZOOpQIDAQAB</em:updateKey>
+  </Description>
+</RDF>

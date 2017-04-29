@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY  title  "Benarichtigungen">
+
+<!ENTITY  tab.general    "Allgemein">
+<!ENTITY  tab.blacklist  "Blacklist">
+
+<!ENTITY  window.caption             "Anzeige">
+<!ENTITY  window.close_after_start   "Fenster nach">
+<!ENTITY  window.close_after_end     " Sekunden schließen">
+<!ENTITY  window.limit_start         "Höchstens">
+<!ENTITY  window.limit_end           " neue Nachrichten anzeigen">
+<!ENTITY  window.screen_position     "Bildschirmposition:">
+<!ENTITY  window.screen_position_ul  "oben links">
+<!ENTITY  window.screen_position_uc  "oben mittig">
+<!ENTITY  window.screen_position_ur  "oben rechts">
+<!ENTITY  window.screen_position_dl  "unten links">
+<!ENTITY  window.screen_position_dc  "unten mittig">
+<!ENTITY  window.screen_position_dr  "unten rechts">
+
+<!ENTITY  view.title        "Ansicht">
+<!ENTITY  view.description  "In Benachrichtigungen folgende Felder anzeigen:">
+<!ENTITY  view.show_subject "Betreff">
+<!ENTITY  view.show_sender  "Absender">
+<!ENTITY  view.show_date    "Datum">
+<!ENTITY  view.show_time    "Zeit">
+<!ENTITY  view.show_preview "Vorschau">
+<!ENTITY  view.show_folder  "Ordner">
+<!ENTITY  view.show_star    "Kennzeichnung">
+
+<!ENTITY  blacklist.title   "Nachrichten aus folgenden Ordnern werden in Benachrichtugngen nicht angezeigt:">
+<!ENTITY  blacklist.add     "Hinzufügen">
+<!ENTITY  blacklist.remove  "Entfernen">

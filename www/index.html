@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>MailAlert extension for Thunderbird</title>
+
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div id="wrap">
+    <h1>MailAlert extension for Thunderbird</h1>
+    
+    <p>This extension provides a new notification system for the Mozilla Thunderbird e-mail client.<p>
+    
+    <p><b>
+        Please note that this is still in beta state. I'm using this since half a year for personal use.
+    </b></p>
+    
+    <p>
+        Nevertheless i would be glad to here from you if you actually tested
+        it on your platform. If you have a question to one of the following points you can drop me a
+        mail at <i>mailalert at eigenco de</i>.
+    </p>
+    
+    <a href="#download">Download</a><br/>
+    <a href="#installation">Installation</a><br/>
+    <a href="#usage">Usage & Screenshots</a><br/>
+    <a href="#localization">Localization</a><br/>
+    <a href="#troubleshooting">Troubleshooting</a><br/>
+    <a href="#problems">Problems of the standard implementation</a>
+    
+    <h2><a name="download">Download</a></h2>
+    
+    <ul>
+        <li>Version 0.2.0: <a href="versions/mailalert-0.2.0.xpi">mailalert-0.2.0.xpi</a> (Thunderbird 3.1 - 3.1.* / WINNT_x86-msvc)</li>
+        <li>
+            Version 0.3.0: <a href="versions/mailalert-0.3.0.xpi">mailalert-0.3.0.xpi</a> (Thunderbird 9.0 - 9.* / WINNT_x86-msvc, Tested on Windows 7 and Vista SP2)<br/>
+        </li>
+    </ul>
+     
+    <h2><a name="installation">Installation</a></h2>
+     
+    <ul>
+        <li>Download a XPI file from above</li>
+        <li>Install in Thunderbird under "Tools > Add-ons > Extensions > Install..."</li>
+        <li>
+            Disable standard notifications under "Tools > Options > General > When new messages arrive"
+            <i>(This is planned to being changed at extension startup. However at the moment it has to be
+                done manually)</i>
+        </li>
+        <li>For the Thunderbird 9 version the preference <i>mail.biff.show_tray_icon</i> must also be disabled. 
+            This can be performed in the "Tools > Options > Advanced > View Configuration" dialog by setting the preference to false.
+        </li>
+    </ul>
+     
+    <h2><a name="usage">Usage & Screenshots</a></h2>
+    
+    <h3>Notification window</h3>
+    
+    <p>
+        The notification window is shown every time a new mail arrives. New mails are kept
+        in the notification window until they get acknowledged (or Thunderbird is restarted).
+    </p>
+    
+    <p>
+        There are three buttons on the top right of the window:
+        <ul>
+            <li>Show preferences.</li>
+            <li>Close window and acknowledge new mail.</li>
+            <li>Close window without acknowledging. </li>
+        </ul>
+    </p>
+    
+    <p>
+        Acknowledging new mails removes the indicator from the system tray and clears the list of 
+        mails shown in the notification window.
+        
+        It also marks all new mails as not new but unread (as in <a href="img/new_unread.png">new vs. unread</a>)
+    </p>
+    
+    <img src="img/notification.png" />
+    
+    <h3>Settings</h3>
+    
+    <p>You can find the settings on the top right of each notification window and in the main menu
+    under "Tools > Add-ons > Extensions > MailAlert > Settings"</p>
+    
+    <img src="img/settings_general.png" />
+    <img src="img/settings_blacklist.png" />
+    
+    <h2><a name="localization">Localization</a></h2>
+    
+    <p>
+        I tried my best to offer a english locale (en_US) for the settings dialog ;) There might be strings out there that
+        are not localized at the moment.
+    </p>
+    
+    <h2><a name="troubleshooting">Troubleshooting</a></h2>
+    
+    <p>
+        The extension includes a binary XPCOM component (NotificationIconService.dll) to integrate to notification
+        icon into the windows taskbar.
+        Thus the extension only works on
+        windows systems. It was compiled using Visual Studio C++ 2010 Express on a Windows 7.
+    </p>
+     
+    <h2 name="problems"><a name="problems">Problems of the standard implementation</a></h2>
+    
+    Below is a list of problems with the default implementation that made me build
+    this extension. Feel free to contact me if you think any of those points is not
+    valid.
+    
+    <h3>No blacklist for folders</h3>
+    <p>
+        The standard notification system does not provide a blacklist for mail folders.
+        Thus many mails from low priority folders are shown what makes it harder to
+        actually spot important mails.
+    </p>
+        
+    <h3>No configurable number of new messages</h3>
+    <p>
+        It is not possible to configure how much new messages should be shown.
+        At most five messages are shown at each time. Thus if you received more than
+        five mails since last watching mails, you won't see all of them in the 
+        notification window.
+    </p>
+    
+    <h3>No proper sorting among new messages</h3>
+    <p>
+        Messages in the standard notification window are not shown in cronological order.
+        If i understood the implementation correct, it just shows mails from <b>one</b> single
+        folder that has new mail (more or less randomly).
+    </p> 
+
+    </div>
+</body>
+</html>

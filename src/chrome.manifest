@@ -1,0 +1,14 @@
+content mailalert chrome/content/
+
+overlay chrome://messenger/content/messenger.xul chrome://mailalert/content/messenger.xul
+overlay chrome://messenger/content/preferences/preferences.xul chrome://mailalert/content/main-preferences.xul
+
+interfaces components/iNotificationIconService.xpt
+binary-component components/NotificationIconService.16.dll ABI=WINNT_x86-msvc platformversion=16
+
+component {05fe59c1-723f-475e-b836-9688838ad3fc} components/MailAlertService.js
+contract @eigenco.de/mailalertservice;1 {05fe59c1-723f-475e-b836-9688838ad3fc}
+
+locale mailalert en-US chrome/locale/en-US/
+locale mailalert de chrome/locale/de-DE/
+skin mailalert classic/1.0 chrome/skin/

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<overlay id="main-preferences" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<prefwindow id="MailPreferences">
+  <prefpane id="paneGeneral">
+    <preferences id="generalPreferences">
+        <preference id="extensions.mailalert.show_alert" name="extensions.mailalert.show_alert" type="bool" />
+    </preferences>
+
+
+    <script type="text/javascript">
+        // Remove original notification preferences from UI
+        window.addEventListener('load', function() {
+            var box = document.getElementById('newMailNotificationAlert').parentNode.parentNode;
+            box.parentNode.removeChild(box);
+            
+            var gb = document.getElementById('mailalertPreferences');
+            var pane = gb.parentNode;
+            
+            pane.removeChild(gb);
+            pane.insertBefore(gb, pane.childNodes[6]);
+        });
+    </script>
+
+    <groupbox id="mailalertPreferences" insertafter="bundlePreferences">
+        <caption label="Wenn neue Nachrichten eintreffen" />
+        <hbox>
+            <checkbox preference="extensions.mailalert.show_alert" label="Ein Benachrichtigung anzeigen" />
+            <spacer flex="1" />
+            <button label="Anpassen.." 
+                    oncommand="window.open('chrome://mailalert/content/preferences.xul', '_blank', 'chrome,dialog=yes');" 
+            />
+        </hbox>
+    </groupbox>
+
+  </prefpane>
+</prefwindow>
+
+</overlay>

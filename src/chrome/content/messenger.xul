@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<overlay id="statusbar" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript">
+    (function() {
+    
+        // Disable default notifications. This should be performed by bootstrapping
+        // which is not available for addons with binary components. So it is performed here
+        var biffPrefs = Components.classes["@mozilla.org/preferences-service;1"]
+                         .getService(Components.interfaces.nsIPrefService).getBranch("mail.biff.");
+        var myPrefs = Components.classes["@mozilla.org/preferences-service;1"]
+                         .getService(Components.interfaces.nsIPrefService).getBranch("extensions.mailalert.");
+        biffPrefs.QueryInterface(Components.interfaces.nsIPrefBranch);
+        myPrefs.QueryInterface(Components.interfaces.nsIPrefBranch);
+        
+        if (!myPrefs.getBoolPref('show_alert')) {
+            myPrefs.setBoolPref('original.show_alert', biffPrefs.getBoolPref('show_alert'));
+            myPrefs.setBoolPref('original.show_tray_icon', biffPrefs.getBoolPref('show_tray_icon'));
+            myPrefs.setBoolPref('original.play_sound', biffPrefs.getBoolPref('play_sound'));
+            
+            biffPrefs.setBoolPref('show_alert', false);
+            biffPrefs.setBoolPref('show_tray_icon', false);
+            biffPrefs.setBoolPref('play_sound', false);
+            
+            myPrefs.setBoolPref('show_alert', true);
+        }
+        
+        // Ensure that original preferences are restored on addon deactivation
+        Components.utils.import("resource://gre/modules/AddonManager.jsm");
+        AddonManager.addAddonListener({
+            onDisabled : function(addon) {
+                if (addon.id === '{3550f703-e582-4d05-9a08-453d09bdfdc6}') {
+                    biffPrefs.setBoolPref('show_alert', myPrefs.getBoolPref('original.show_alert'));
+                    biffPrefs.setBoolPref('show_tray_icon', myPrefs.getBoolPref('original.show_tray_icon'));
+                    biffPrefs.setBoolPref('play_sound', myPrefs.getBoolPref('original.play_sound'));
+            
+                    myPrefs.setBoolPref('show_alert', false);
+                }
+            }
+        });
+        
+        // Open a new notification window each time the mailalertservice fires an alert
+        window.addEventListener("load", function (event) {
+            // Show the alert window on each "alert" event from the alert service
+            var as = Components.classes["@eigenco.de/mailalertservice;1"].getService().wrappedJSObject;
+            as.addAlertListener(function() {
+                var notification = window.open("chrome://mailalert/content/mailalertwindow.xul", "_blank", "chrome,dialog=no,titlebar=no,popup=yes");
+            });
+        }, false);
+    })();
+  </script>
+</overlay>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY  title  "Notifications">
+
+<!ENTITY  tab.general  "General">
+<!ENTITY  tab.blacklist  "Blacklist">
+
+<!ENTITY  window.caption             "Window">
+<!ENTITY  window.close_after_start   "Close window after">
+<!ENTITY  window.close_after_end     " seconds">
+<!ENTITY  window.limit_start         "Show at most">
+<!ENTITY  window.limit_end           " new messages">
+<!ENTITY  window.screen_position     "Screen position:">
+<!ENTITY  window.screen_position_ul  "top left">
+<!ENTITY  window.screen_position_uc  "top center">
+<!ENTITY  window.screen_position_ur  "top right">
+<!ENTITY  window.screen_position_dl  "bottom left">
+<!ENTITY  window.screen_position_dc  "bottom center">
+<!ENTITY  window.screen_position_dr  "bottom right">
+
+<!ENTITY  view.title        "Display">
+<!ENTITY  view.description  "Show the following fields in notifications:">
+<!ENTITY  view.show_subject "Subject">
+<!ENTITY  view.show_sender  "Sender">
+<!ENTITY  view.show_date    "Date">
+<!ENTITY  view.show_time    "Time">
+<!ENTITY  view.show_preview "Preview">
+<!ENTITY  view.show_folder  "Folder">
+<!ENTITY  view.show_star    "Star">
+
+<!ENTITY  blacklist.title   "New mail from the following folders will not be shown in notifications.">
+<!ENTITY  blacklist.add     "Add folder">
+<!ENTITY  blacklist.remove  "Remove folder">

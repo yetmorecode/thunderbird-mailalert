@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY  no_messages  "Keine neuen Nachrichten">
+<!ENTITY  one_new_message  "Eine neue Nachricht">
+<!ENTITY  multiple_new_messages  "neue Nachrichten">
+
+<!ENTITY  one_more_message  "Eine weitere Nachricht..">
+<!ENTITY  multiple_more_messages  "weitere Nachrichten..">

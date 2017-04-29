@@ -1,0 +1,115 @@
+
+#imgThunderbird {
+    list-style-image: url('chrome://branding/content/icon64.png');
+    padding: 2px 5px 2px 2px;
+}
+
+#btnClose {
+    list-style-image: url('chrome://messenger/skin/icons/close-button.png');
+    -moz-image-region: rect(0px, 16px, 16px, 0px);    
+}
+
+#btnClose:hover {
+    -moz-image-region: rect(0px, 32px, 16px, 16px);
+}
+
+#btnClose:hover:active {
+    -moz-image-region: rect(0px, 48px, 16px, 32px);
+}
+
+#btnPreferences {
+    list-style-image: url('chrome://mailalert/skin/preferences.png');
+    width: 22px;
+    height: 16px;
+}
+
+#btnMarkRead {
+    list-style-image: url('chrome://messenger/skin/icons/tick.png');
+    width: 22px;
+    height: 16px;
+}
+
+#incomingMailNotification {
+    border: ridge #5486DA 2px;
+    background-color: -moz-Dialog;
+    color: -moz-DialogText;
+}
+
+#titleNoNew, #titleOneNew, #titleMultipleNew, #titleNumMails {
+    margin-top: 7px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#titleMultipleNew {
+    margin-left: 0px;
+}
+
+#titleNumMails {
+    margin-right: 3px;
+}
+
+.mailEntry {    
+    margin-right: 10px;
+}
+
+.mailEntry:hover * {
+    cursor: pointer;
+    color: #03c;
+}
+
+.mailEntrySubject {
+    font-weight: bold;
+    width: 305px;
+}
+
+.mailEntrySender {
+    width: 95px;
+}
+
+.mailEntryPreview {
+    max-width: 400px;    
+    color: gray;
+}
+
+.mailEntryStarred {
+    width: 12px;
+    height: 19px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    margin-left: 5px;
+}
+
+.mailEntryStarred.active {    
+    list-style-image: url('chrome://messenger/skin/icons/flag-col.png');
+}
+
+.mailEntryStarred.inactive {
+    list-style-image: url('chrome://messenger/skin/icons/flag-empty.png');
+}
+
+#btnMore {
+    padding: 0px;
+    margin: 1px;
+    border: 1px solid transparent;
+    -moz-border-radius: 2px;
+    color: #aaa;
+}
+
+#btnMore:hover {
+    border: 1px solid #ccc;
+    color: blue;
+}
+
+#titleOneMore, #titleMultipleMore, #titleCountMore {
+   text-align: center; 
+   font-size: 90%;
+}
+
+#titleMultipleMore {
+    margin-left: 0px;
+}
+
+#titleCountMore {
+    margin-right: 3px;
+}
